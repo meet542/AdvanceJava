@@ -1,11 +1,11 @@
-package com.rays.jdbc;
+package com.rays.jdbc.school;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
-public class TestConnectionSchool {
+public class TestConnection {
 
 	public static void main(String[] args) throws Exception {
 
@@ -20,22 +20,9 @@ public class TestConnectionSchool {
 		// step 3. create Statement and get ResultSet or insert, update and delete
 		// records
 		Statement stmt = conn.createStatement();
-		
+
 		// step 4 get records
 		ResultSet rs = stmt.executeQuery("select * from students");
-
-		while (rs.next()) {
-			System.out.print(rs.getInt("student_id"));
-			System.out.print("\t" + rs.getString("name"));
-			System.out.print("\t" + rs.getInt("age"));
-			System.out.print("\t" + rs.getString("gender"));
-			System.out.print("\t" + rs.getString("city"));
-			System.out.print("\t" + rs.getString("cource"));
-			System.out.print("\t" + rs.getFloat("marks"));
-			System.out.println("\t" + rs.getString("phone"));
-			System.out.println("-----------------------------------------------------------------------");
-
-		}
 
 	}
 

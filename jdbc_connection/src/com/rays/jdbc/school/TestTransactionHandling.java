@@ -1,10 +1,10 @@
-package com.rays.jdbc;
+package com.rays.jdbc.school;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class TestTransactionHandlingSchool {
+public class TestTransactionHandling {
 	public static void main(String[] args) throws Exception {
 		Connection conn = null;
 
@@ -22,8 +22,9 @@ public class TestTransactionHandlingSchool {
 
 			int i = state.executeUpdate(
 					"insert into students values(9, 'Vikas Yadav', 22, 'M', 'Lucknow', 'SQL', 73.5, '9876543218')");
-			i = state.executeUpdate(
-					"insert into students values(10, 'Pooja Mishra', 21, 'F', 'Indore', 'Java', 87.0, '9876543219')");
+			// i = state.executeUpdate(
+			// "insert into students values(10, 'Pooja Mishra', 21, 'F', 'Indore',
+			// 'Java',87.0, '9876543219')");
 			i = state.executeUpdate(
 					"insert into students values(10, 'Pooja Mishra', 21, 'F', 'Indore', 'Java', 87.0, '9876543219')");
 			i = state.executeUpdate(

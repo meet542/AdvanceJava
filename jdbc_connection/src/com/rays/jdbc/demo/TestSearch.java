@@ -1,4 +1,4 @@
-package com.rays.jdbc;
+package com.rays.jdbc.demo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -17,13 +17,12 @@ public class TestSearch {
 		ResultSet rs = stmt.executeQuery("select * from st_user");
 
 		while (rs.next()) {
-			System.out.println(rs.getInt("id"));
-			System.out.println(rs.getString("firstName"));
-			System.out.println(rs.getString("lastName"));
-			System.out.println(rs.getString("loginId"));
-			System.out.println(rs.getString("password"));
-			System.out.println(rs.getDate("dob"));
-			System.out.println("--------------");
+			System.out.print(rs.getInt("id"));
+			System.out.print("\t" + rs.getString("firstName"));
+			System.out.print("\t" + rs.getString("lastName"));
+			System.out.print("\t" + rs.getString("loginId"));
+			System.out.print("\t" + rs.getString("password"));
+			System.out.println("\t" + rs.getDate("dob"));
 		}
 
 	}
