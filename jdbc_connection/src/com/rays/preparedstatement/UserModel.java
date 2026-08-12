@@ -69,7 +69,7 @@ public class UserModel {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "root@789");
 			conn.setAutoCommit(false);
-			PreparedStatement pstmt = conn.prepareStatement("delete st_user where id = ?");
+			PreparedStatement pstmt = conn.prepareStatement("delete from st_user where id = ?");
 
 			pstmt.setInt(1, id);
 
