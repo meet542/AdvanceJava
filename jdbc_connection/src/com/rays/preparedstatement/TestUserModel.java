@@ -8,17 +8,19 @@ public class TestUserModel {
 	public static SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
 	public static void main(String[] args) throws Exception {
-//		testAdd();
-//		testUpdate();
+		testAdd();
+		testUpdate();
 		testDelete();
 	}
 
 	public static void testAdd() throws Exception {
-		model.add(2, "ram", "sharma", "sharma632", "password", sdf.parse("2002-02-02"));
+
+		model.add(11, "ram", "sharma", "sharma632", "password", sdf.parse("2002-02-02"));
 	}
 
 	public static void testUpdate() throws Exception {
-		model.update(11, "Parshuram", "sharma", "sharma632", "password", sdf.parse("2002-02-02"));
+
+		model.update(11, "ram", "sharma", "sharma632", "password", sdf.parse("2002-02-02"));
 	}
 
 	public static void testDelete() throws Exception {
