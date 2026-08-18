@@ -16,6 +16,7 @@ public class TestUserModel {
 //		testFindByPk();
 //		testAuthenticate();
 		testSearch();
+//		testFindByLoginId();
 	}
 
 	public static void testAdd() throws Exception {
@@ -48,6 +49,18 @@ public class TestUserModel {
 	public static void testDelete() throws Exception {
 		model.delete(11);
 	}
+	
+	public static void testFindByLoginId() throws Exception {
+		
+		UserBean bean = model.findByLoginId("");
+		
+		System.out.println(bean.getId());
+		System.out.println(bean.getFirstName());
+		System.out.println(bean.getLastName());
+		System.out.println(bean.getLoginId());
+		System.out.println(bean.getPassword());
+		System.out.println(bean.getDob());
+	}
 
 	public static void testFindByPk() throws SQLException {
 
@@ -63,7 +76,7 @@ public class TestUserModel {
 
 	public static void testAuthenticate() throws Exception {
 
-		UserBean bean = model.authenticate("", "");
+		UserBean bean = model.authenticate("sharma632", "password");
 
 		System.out.println(bean.getFirstName());
 		System.out.println(bean.getLastName());
@@ -84,7 +97,7 @@ public class TestUserModel {
 
 		while (it.hasNext()) {
 			bean = it.next();
-			System.out.print("\t" + bean.getId());
+			System.out.print(bean.getId());
 			System.out.print("\t" + bean.getFirstName());
 			System.out.print("\t" + bean.getLastName());
 			System.out.print("\t" + bean.getLoginId());

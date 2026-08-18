@@ -9,20 +9,21 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.rays.util.JDBCDataSource;
+
 public class UserModel {
 	public void add(UserBean bean) throws Exception {
 
 		Connection conn = null;
 
-		UserBean existBean = findByLogin(bean.getLoginId());
+		UserBean existBean = findByLoginId(bean.getLoginId());
 
 		if (existBean != null) {
-			throw new RuntimeException("login already exists");
+			throw new RuntimeException("Login already exists.");
 		}
 
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "root@789");
+			conn = JDBCDataSource.getConnection();
 			conn.setAutoCommit(false);
 			PreparedStatement pstmt = conn.prepareStatement("insert into st_user values(?,?,?,?,?,?)");
 			pstmt.setInt(1, bean.getId());
@@ -47,8 +48,7 @@ public class UserModel {
 	public void update(UserBean bean) throws SQLException {
 		Connection conn = null;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "root@789");
+			conn = JDBCDataSource.getConnection();
 			conn.setAutoCommit(false);
 			PreparedStatement pstmt = conn.prepareStatement(
 					"update st_user set firstName = ?, lastName = ?, loginId = ?, password = ?, dob = ? where id = ?");
@@ -75,8 +75,7 @@ public class UserModel {
 	public void delete(int id) throws SQLException {
 		Connection conn = null;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "root@789");
+			conn = JDBCDataSource.getConnection();
 			conn.setAutoCommit(false);
 			PreparedStatement pstmt = conn.prepareStatement("delete from st_user where id = ?");
 
@@ -98,8 +97,7 @@ public class UserModel {
 		Connection conn = null;
 		UserBean bean = null;
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "root@789");
+			conn = JDBCDataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement("select * from st_user where id = ?");
 
 			pstmt.setInt(1, id);
@@ -125,14 +123,13 @@ public class UserModel {
 		return bean;
 	}
 
-	public UserBean findByLogin(String loginId) throws Exception {
+	public UserBean findByLoginId(String loginId) throws Exception {
 
 		Connection conn = null;
 		UserBean bean = null;
 
 		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "root@789");
+			conn = JDBCDataSource.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement("select * from st_user where loginId = ?");
 
 			pstmt.setString(1, loginId);
@@ -150,7 +147,9 @@ public class UserModel {
 			}
 
 		} catch (Exception e) {
-			System.out.println("Exception : " + e.getMessage());
+			e.printStackTrace();
+
+//			System.out.println("Exception : " + e.getMessage());
 		}
 
 		finally {
@@ -163,7 +162,7 @@ public class UserModel {
 
 		Connection conn = null;
 
-		UserBean bean = findByLogin(loginId);
+		UserBean bean = findByLoginId(loginId);
 
 		if (bean != null && bean.getPassword().equals(password)) {
 			return bean;
@@ -205,12 +204,10 @@ public class UserModel {
 		}
 
 		try {
-			
+
 			System.out.println("sql === " + sql.toString());
 
-			Class.forName("com.mysql.cj.jdbc.Driver");
-
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/demo", "root", "root@789");
+			conn = JDBCDataSource.getConnection();
 
 			PreparedStatement pstmt = conn.prepareStatement(sql.toString());
 
