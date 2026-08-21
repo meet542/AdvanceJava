@@ -8,5 +8,6 @@
 </head>
 <body>
 	<h1>Hello World</h1>
+	<a href="WelcomeCtl">Click here to enter website</a>
 </body>
 </html>

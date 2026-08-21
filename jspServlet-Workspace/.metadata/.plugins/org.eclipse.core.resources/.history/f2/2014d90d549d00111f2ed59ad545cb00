@@ -1,0 +1,8 @@
+package com.rays.ctl;
+
+import javax.servlet.http.HttpServlet;
+
+public class WelcomeCtl extends {
+	
+
+}
