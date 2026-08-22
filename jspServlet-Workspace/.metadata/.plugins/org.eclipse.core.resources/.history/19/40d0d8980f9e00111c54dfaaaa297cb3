@@ -1,0 +1,9 @@
+package com.rays.bean;
+
+public class UserBean {
+	
+	int id;
+	String firstName;
+	
+
+}

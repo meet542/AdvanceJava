@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="Header.jsp" %>
+	<%@ include file="Header.jsp"%>
 	<div align="center">
 
 		<h1>User Registration</h1>
 
-		<form>
+		<form action="UserRegistrationCtl" method="post">
 			<table>
 				<tr>
 					<th>FirstName</th>
@@ -48,5 +48,7 @@
 			</table>
 		</form>
 	</div>
+
+	<%@ include file="Footer.jsp"%>
 </body>
 </html>

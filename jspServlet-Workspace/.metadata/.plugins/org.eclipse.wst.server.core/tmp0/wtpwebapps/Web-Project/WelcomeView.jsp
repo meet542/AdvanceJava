@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%@ include file="Header.jsp" %>
+	<%@ include file="Header.jsp"%>
 	<div align="center">
 		<h1 style="color: darkblue">Welcome to my Web-Site</h1>
 	</div>
-
+	<%@ include file="Footer.jsp"%>
 </body>
 </html>

@@ -1,0 +1,4 @@
+url = dbc:mysql://localhost:3306/demo
+driver=com.mysql.cj.jdbc.Driver
+username=root
+password=root@789

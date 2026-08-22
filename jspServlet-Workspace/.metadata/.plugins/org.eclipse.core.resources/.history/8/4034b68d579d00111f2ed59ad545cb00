@@ -1,7 +1,0 @@
-package com.rays.ctl;
-
-import javax.servlet.http.HttpServlet;
-
-public class LoginViewCtl extends HttpServlet{
-	
-}

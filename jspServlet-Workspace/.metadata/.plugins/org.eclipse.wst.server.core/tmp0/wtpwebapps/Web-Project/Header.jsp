@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<a href="LoginCtl">Login</a> |
 	<a href="UserRegistrationCtl">SignUp</a> |
 	<a href="WelcomeCtl">Welcome</a>

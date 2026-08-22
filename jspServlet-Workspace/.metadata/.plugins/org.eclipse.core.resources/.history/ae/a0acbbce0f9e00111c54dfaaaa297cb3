@@ -1,0 +1,14 @@
+package com.rays.bean;
+
+import java.sql.Date;
+
+public class UserBean {
+	
+	int id;
+	String firstName;
+	String lastName;
+	String loginId;
+	String password;
+	Date
+
+}

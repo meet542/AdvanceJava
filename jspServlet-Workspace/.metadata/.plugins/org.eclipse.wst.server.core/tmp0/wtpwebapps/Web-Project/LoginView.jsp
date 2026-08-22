@@ -4,15 +4,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Login Page</title>
 </head>
 <body>
-<%@ include file="Header.jsp" %>
+	<%@ include file="Header.jsp"%>
 	<div align="center">
 
 		<h1>Login</h1>
-
-		<form>
+		<form action="LoginCtl" method="post">
 			<table>
 				<tr>
 					<th>Login</th>
@@ -30,7 +29,10 @@
 				</tr>
 			</table>
 		</form>
-	</div>
 
+	</div>
+	<%@ include file="Footer.jsp"%>
 </body>
+
+
 </html>

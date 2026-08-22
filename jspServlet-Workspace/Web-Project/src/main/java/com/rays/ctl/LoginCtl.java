@@ -1,6 +1,7 @@
 package com.rays.ctl;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -9,19 +10,42 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/LoginCtl")
-public class LoginCtl extends HttpServlet {
+import com.rays.bean.UserBean;
+import com.rays.model.UserModel;
 
+@WebServlet("/LoginCtl")//wildcard-mapping
+
+public class LoginCtl extends HttpServlet{
+	
 	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		RequestDispatcher rd = request.getRequestDispatcher("LoginView.jsp");
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("LoginView.jsp"); 
+		// here RequestDispatcher is interface we use getRequestDispatcher() method of HttpServletRequest class which return object of RequestDispatcher
 		rd.forward(request, response);
 	}
-
+	
 	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UserBean bean = new UserBean();
+		UserModel model = new UserModel();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String loginId = request.getParameter("login");
+		String password = request.getParameter("password");
+		
+		try {
+			bean = model.authenticate(loginId, password);
+			if(bean != null) {
+				System.out.println("login successfull.");
+			}else {
+				System.out.println("invalid credentials.");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		RequestDispatcher rd = request.getRequestDispatcher("LoginView.jsp"); 
+		rd.forward(request, response);
 	}
 }

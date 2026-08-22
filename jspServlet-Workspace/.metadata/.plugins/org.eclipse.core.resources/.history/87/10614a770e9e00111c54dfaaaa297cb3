@@ -1,0 +1,9 @@
+package com.rays.util;
+
+import java.sql.Connection;
+
+public class JDBCDataSource {
+	public static Connection getConnection() {
+		
+	}
+}
