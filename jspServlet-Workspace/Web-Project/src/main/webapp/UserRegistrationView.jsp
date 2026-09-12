@@ -7,11 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+	<%
+	String succ = (String) request.getAttribute("succesMessage");
+	%>
+
 	<%@ include file="Header.jsp"%>
 	<div align="center">
 
 		<h1>User Registration</h1>
-
+		<h3 style="color: green" ><%=succ != null ? succ : ""%></h3>
 		<form action="UserRegistrationCtl" method="post">
 			<table>
 				<tr>

@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<%-- <% %>  script-let tag use to write java code in jsp pages --%>
+<%-- <% %>  scriptlet tag use to write java code in jsp pages --%>
 <%-- <%= %> expression tag use to print java variable, values and objects in jsp pages --%>
 
 	<%
