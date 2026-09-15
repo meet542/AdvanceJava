@@ -8,8 +8,8 @@
 </head>
 <body>
 
-<%-- <% %>  scriptlet tag use to write java code in jsp pages --%>
-<%-- <%= %> expression tag use to print java variable, values and objects in jsp pages --%>
+<%-- <% %>  scriptlet tag use to write java code in .jsp pages --%>
+<%-- <%= %> expression tag use to print java variable, values and objects in .jsp pages --%>
 
 	<%
 	for (int i = 1; i <= 10; i++) {

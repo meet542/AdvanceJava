@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.rays.util.ServletUtility;
+
 @WebServlet("/WelcomeCtl")//wildcard-mapping
 
 public class WelcomeCtl extends HttpServlet{
@@ -16,9 +18,7 @@ public class WelcomeCtl extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("WelcomeView.jsp");
-		// here RequestDispatcher is interface(we can not make objects of interface directly)so we use getRequestDispatcher() method of HttpServletRequest class which return object of RequestDispatcher
-		rd.forward(req, resp);
+		ServletUtility.forword("WelcomeView.jsp", req, resp);
 	}
 	
 	@Override
