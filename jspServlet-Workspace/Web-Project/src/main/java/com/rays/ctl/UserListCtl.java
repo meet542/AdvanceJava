@@ -1,6 +1,7 @@
 package com.rays.ctl;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -13,7 +14,7 @@ import com.rays.bean.UserBean;
 import com.rays.model.UserModel;
 import com.rays.util.ServletUtility;
 
-@WebServlet("/UserListCtl") // wildcard mapping
+@WebServlet("/UserListCtl.do") // wildcard mapping
 public class UserListCtl extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -48,6 +49,22 @@ public class UserListCtl extends HttpServlet {
 
 		int pageNo = 1;
 		int pageSize = 5;
+
+		if (op.equals("delete")) {
+			String[] ids = request.getParameterValues("ids");
+			if (ids != null && ids.length > 0) {
+				for (String id : ids) {
+					try {
+						model.delete(Integer.parseInt(id));
+						request.setAttribute("succMsg", "record deleted successfully");
+					} catch (NumberFormatException | SQLException e) {
+						e.printStackTrace();
+					}
+				}
+			} else {
+				request.setAttribute("errorMsg", "select at least one record to delete");
+			}
+		}
 
 		if (op.equals("previous")) {
 			pageNo = Integer.parseInt(request.getParameter("pageNo"));

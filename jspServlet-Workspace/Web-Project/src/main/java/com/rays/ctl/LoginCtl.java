@@ -51,7 +51,7 @@ public class LoginCtl extends HttpServlet {
 			bean = model.authenticate(loginId, password);
 			if (bean != null) {
 				System.out.println("login successfull.");
-				request.setAttribute("succMsg", "login successfull.");
+//				request.setAttribute("succMsg", "login successfull.");
 				session.setAttribute("user", bean);
 				response.sendRedirect("WelcomeCtl");
 				return;
